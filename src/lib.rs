@@ -10,7 +10,7 @@ pub fn better_todo(todo: &str) {
 
     // Write colored text to the console
     stdout.set_color(&color_spec).unwrap();
-    writeln!(&mut stdout, "{}", todo).unwrap();
+    writeln!(&mut stdout, "\n{}", todo).unwrap();
 }
 
 pub fn color_print(msg: &str, color: &str ) {
