@@ -1,12 +1,7 @@
 use termcolor::{Color, ColorChoice, ColorSpec, StandardStream, WriteColor};
 use std::io::Write;
 
-// fn main() {
-//     color_print("this is a todo bruh", "green");
-//     better_todo("this is a todo bruh");
-// }
-
-fn better_todo(todo: &str) {
+pub fn better_todo(todo: &str) {
     let mut stdout = StandardStream::stdout(ColorChoice::Always);
 
     // Set the color specification for the text
@@ -18,7 +13,7 @@ fn better_todo(todo: &str) {
     writeln!(&mut stdout, "{}", todo).unwrap();
 }
 
-fn color_print(msg: &str, mut color: &str ) {
+pub fn color_print(msg: &str, color: &str ) {
     let color_conversion: Color = match color.to_lowercase().as_str() {
         "black" => Color::Black,
         "blue" => Color::Blue,
@@ -35,7 +30,7 @@ fn color_print(msg: &str, mut color: &str ) {
 
     // Set the color specification for the text
     let mut color_spec = ColorSpec::new();
-    color_spec.set_fg(Some(color_conversion)); // Set the foreground color to red
+    color_spec.set_fg(Some(color_conversion));
 
     // Write colored text to the console
     stdout.set_color(&color_spec).unwrap();
